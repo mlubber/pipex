@@ -6,7 +6,7 @@
 /*   By: mlubbers <mlubbers@student.codam.nl>         +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2024/04/16 09:48:57 by mlubbers      #+#    #+#                 */
-/*   Updated: 2024/04/23 08:52:28 by mlubbers      ########   odam.nl         */
+/*   Updated: 2024/04/23 10:31:39 by mlubbers      ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_exec(char **argv, int i, char **envp)
 
 	cmd_list = ft_split(argv[i], ' ');
 	if (cmd_list[0] == NULL)
-		ft_exit(cmd_list[0]);
+		cmd_list[0] = "cat\0";
 	if (cmd_list[0] && ft_get_exec_cmd(cmd_list[0], envp))
 		execve(ft_get_exec_cmd(cmd_list[0], envp), cmd_list, envp);
 	ft_cmd_not_found(cmd_list);
